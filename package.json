@@ -1,0 +1,25 @@
+{
+  "name": "react-storefront",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "server": "cd server && nodemon server.js",
+    "client": "cd client && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MNlegion/react-storefront.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MNlegion/react-storefront/issues"
+  },
+  "homepage": "https://github.com/MNlegion/react-storefront#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
