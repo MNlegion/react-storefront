@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const { userRoutes } = require("./routes");
 
 // MongoDB connection
 const connectDB = require("./config/connection");
@@ -18,10 +19,8 @@ app.use(express.json()); // Parse JSON body in requests
 // Connect to MongoDB
 connectDB();
 
-// Basic route for testing
-app.get("/", (req, res) => {
-  res.send("Hello world!");
-});
+// Routes
+app.use("/api/users", userRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
