@@ -1,33 +1,25 @@
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
-    user: {
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // Assuming you have a User model
+    required: true,
+  },
+  items: [
+    {
+      product: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    items: [{
-        product: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Product',
-            required: true
-        },
-        quantity: {
-            type: Number,
-            required: true,
-            min: [1, 'Quantity cannot be less than 1.']
-        }
-    }],
-    totalPrice: {
+        ref: 'Product', // Assuming you have a Product model
+        required: true,
+      },
+      quantity: {
         type: Number,
         required: true,
-        default: 0
+      },
     },
-    updatedAt: {
-        type: Date,
-        default: Date.now
-    }
-    // Additional fields like cart status can be added if needed
+  ],
+  // Add more fields as needed for your cart
 });
 
 const Cart = mongoose.model('Cart', cartSchema);
