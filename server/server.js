@@ -19,9 +19,7 @@ app.use(express.json());
 connectDB();
 
 // Define Routes
-app.get("/", (req, res) => {
-  res.send("Hello world!");
-});
+app.use("/api/users", require("./routes/users"));
 
 // Define the PORT
 const PORT = process.env.PORT || 3001;
